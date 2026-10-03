@@ -1,0 +1,2 @@
+const { z } = require('zod');
+module.exports=z.object({PORT:z.coerce.number().default(3000),DATABASE_URL:z.string().min(1),JWT_SECRET:z.string().min(32),CORS_ORIGIN:z.string().default('*'),ADMIN_USERNAME:z.string().min(3).optional(),ADMIN_PASSWORD:z.string().min(12).optional()}).parse(process.env);
