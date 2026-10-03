@@ -1,13 +1,1 @@
-{
-  "name": "cable-tartak-api",
-  "version": "1.0.0",
-  "description": "Servidor central para Cable Tartak",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "dependencies": {
-    "express": "^4.19.2",
-    "cors": "^2.8.5"
-  }
-}
+{"name":"nexfiber-api","version":"2.0.0","description":"NEXFIBER - Plataforma de gestión para ISP y empresas FTTH","main":"src/server.js","scripts":{"start":"node src/server.js","dev":"node --watch src/server.js"},"dependencies":{"bcryptjs":"^2.4.3","cors":"^2.8.5","express":"^4.19.2","express-rate-limit":"^7.5.0","helmet":"^8.1.0","jsonwebtoken":"^9.0.2","pg":"^8.16.3","zod":"^3.25.76"}}
