@@ -1,0 +1,4 @@
+const express=require('express');const cors=require('cors');const helmet=require('helmet');const rateLimit=require('express-rate-limit');const env=require('./config');const auth=require('./routes/auth');const api=require('./routes/api');
+const app=express();app.use(helmet());app.use(cors({origin:env.CORS_ORIGIN==='*'?true:env.CORS_ORIGIN}));app.use(express.json({limit:'1mb'}));app.use(rateLimit({windowMs:15*60*1000,max:300,standardHeaders:true,legacyHeaders:false}));
+app.get('/',(req,res)=>res.json({ok:true,name:'NEXFIBER',version:'2.0.0'}));app.get('/health',(req,res)=>res.json({ok:true,service:'nexfiber-api'}));app.use('/api/auth',auth);app.use('/api',api);app.use((err,req,res,next)=>{console.error(err);if(err.name==='ZodError')return res.status(400).json({error:'Datos inválidos.',details:err.issues});res.status(500).json({error:'Error interno del servidor.'});});
+app.listen(env.PORT,()=>console.log('NEXFIBER API activo en puerto '+env.PORT));
