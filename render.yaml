@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: nexfi​ber-api
+    name: nexfiber-api
     runtime: node
     plan: free
     branch: nexfiber-foundation
